@@ -20,10 +20,7 @@ router.route('/').get(function (req, res) {
         errors: 'Unauthorized'
       });
     }
-    return res.status(_constants.HttpStatusCode.OK).json({
-      status: 'Ok',
-      errors: ''
-    });
+    return res.status(_constants.HttpStatusCode.OK).send(_environment.env.FPT_WEBHOOK_TOKEN);
   } catch (error) {
     return res.status(_constants.HttpStatusCode.INTERNAL_SERVER).json({
       errors: error.message
@@ -38,10 +35,7 @@ router.route('/').post(function (req, res) {
         errors: 'Unauthorized'
       });
     }
-    return res.status(_constants.HttpStatusCode.OK).json({
-      status: 'Ok',
-      errors: ''
-    });
+    res.status(_constants.HttpStatusCode.OK).send(_environment.env.FPT_WEBHOOK_TOKEN);
   } catch (error) {
     return res.status(_constants.HttpStatusCode.INTERNAL_SERVER).json({
       errors: error.message

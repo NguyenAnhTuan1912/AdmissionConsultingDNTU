@@ -18,10 +18,7 @@ router
         })
       }
 
-      return res.status(HttpStatusCode.OK).json({
-        status: 'Ok',
-        errors: ''
-      })
+      return res.status(HttpStatusCode.OK).send(env.FPT_WEBHOOK_TOKEN)
     } catch (error) {
       return res.status(HttpStatusCode.INTERNAL_SERVER).json({
         errors: error.message
@@ -41,10 +38,7 @@ router
         })
       }
 
-      return res.status(HttpStatusCode.OK).json({
-        status: 'Ok',
-        errors: ''
-      })
+      res.status(HttpStatusCode.OK).send(env.FPT_WEBHOOK_TOKEN)
     } catch (error) {
       return res.status(HttpStatusCode.INTERNAL_SERVER).json({
         errors: error.message
