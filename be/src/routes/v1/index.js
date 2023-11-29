@@ -1,7 +1,11 @@
 import express from 'express'
 
-import { chatbotRoutes } from './chatbot.route'
+// Import from utils
 import { HttpStatusCode } from '~/utilities/constants'
+
+// Import from routes
+import { chatbotRoutes } from './chatbot.route'
+import { webhookRoutes } from './webhook.route'
 
 const router = express.Router()
 
@@ -9,5 +13,7 @@ router.get('/status', (req, res) => res.status(HttpStatusCode.OK).json({ status:
 
 /** Chat APIs */
 router.use('/chatbot', chatbotRoutes)
+
+router.use(webhookRoutes)
 
 export const apiV1 = router

@@ -8,6 +8,8 @@ exports.FPTBotServices = void 0;
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _environment = require("../config/environment");
+// Import from config
+
 var _baseURL_ = 'https://bot.fpt.ai';
 var _channel_ = 'api';
 var _api_ = {

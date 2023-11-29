@@ -1,5 +1,5 @@
+// Import from config
 import { env } from '~/config/environment'
-
 
 const _baseURL_ = 'https://bot.fpt.ai'
 const _channel_ = 'api'
