@@ -12,7 +12,30 @@ router
   .route('/')
   .get(function(req, res) {
     try {
-      if (req.headers.token !== env.FPT_WEBHOOK_TOKEN) {
+      if (req.query.token !== env.FPT_WEBHOOK_TOKEN) {
+        return res.status(HttpStatusCode.UNAUTHORIZED).json({
+          errors: 'Unauthorized'
+        })
+      }
+
+      return res.status(HttpStatusCode.OK).json({
+        status: 'Ok',
+        errors: ''
+      })
+    } catch (error) {
+      return res.status(HttpStatusCode.INTERNAL_SERVER).json({
+        errors: error.message
+      })
+    }
+  })
+
+router
+  .route('/')
+  .post(function(req, res) {
+    try {
+      const token = req.body['secret_key']
+
+      if (token !== env.FPT_WEBHOOK_TOKEN) {
         return res.status(HttpStatusCode.UNAUTHORIZED).json({
           errors: 'Unauthorized'
         })
