@@ -9,7 +9,7 @@ import { HttpStatusCode } from '~/utilities/constants'
  * @param {*} res
  * @param {*} req
  */
-async function getAnswerAsText(req, res) {
+async function getAnswer(req, res) {
   try {
     const { content, type = 'text' } = req.body
     const response = await FPTBotServices.getAnswer(content, type)
@@ -23,5 +23,5 @@ async function getAnswerAsText(req, res) {
 }
 
 export const FPTController = {
-  getAnswerAsText
+  getAnswer
 }

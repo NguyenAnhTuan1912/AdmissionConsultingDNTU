@@ -17,7 +17,7 @@ router.route('/').get(function (req, res) {
   try {
     if (req.query.token !== _environment.env.FPT_WEBHOOK_TOKEN) {
       return res.status(_constants.HttpStatusCode.UNAUTHORIZED).json({
-        errors: 'Unauthorized'
+        errors: 'Invalid token'
       });
     }
     return res.status(_constants.HttpStatusCode.OK).send(_environment.env.FPT_WEBHOOK_TOKEN);
@@ -29,13 +29,13 @@ router.route('/').get(function (req, res) {
 });
 router.route('/').post(function (req, res) {
   try {
-    var token = req.body['secret_key'];
+    var token = req.body.token;
     if (token !== _environment.env.FPT_WEBHOOK_TOKEN) {
       return res.status(_constants.HttpStatusCode.UNAUTHORIZED).json({
-        errors: 'Unauthorized'
+        errors: 'Invalid token'
       });
     }
-    res.status(_constants.HttpStatusCode.OK).send(_environment.env.FPT_WEBHOOK_TOKEN);
+    return res.status(_constants.HttpStatusCode.OK).send(_environment.env.FPT_WEBHOOK_TOKEN);
   } catch (error) {
     return res.status(_constants.HttpStatusCode.INTERNAL_SERVER).json({
       errors: error.message

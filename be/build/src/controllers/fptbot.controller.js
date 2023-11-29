@@ -16,11 +16,11 @@ var _constants = require("../utilities/constants");
  * @param {*} res
  * @param {*} req
  */
-function getAnswerAsText(_x, _x2) {
-  return _getAnswerAsText.apply(this, arguments);
+function getAnswer(_x, _x2) {
+  return _getAnswer.apply(this, arguments);
 }
-function _getAnswerAsText() {
-  _getAnswerAsText = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
+function _getAnswer() {
+  _getAnswer = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(req, res) {
     var _req$body, content, _req$body$type, type, response, result;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
@@ -48,9 +48,9 @@ function _getAnswerAsText() {
       }
     }, _callee, null, [[0, 11]]);
   }));
-  return _getAnswerAsText.apply(this, arguments);
+  return _getAnswer.apply(this, arguments);
 }
 var FPTController = {
-  getAnswerAsText: getAnswerAsText
+  getAnswer: getAnswer
 };
 exports.FPTController = FPTController;

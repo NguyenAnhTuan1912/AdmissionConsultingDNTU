@@ -14,7 +14,7 @@ router
     try {
       if (req.query.token !== env.FPT_WEBHOOK_TOKEN) {
         return res.status(HttpStatusCode.UNAUTHORIZED).json({
-          errors: 'Unauthorized'
+          errors: 'Invalid token'
         })
       }
 
@@ -30,15 +30,15 @@ router
   .route('/')
   .post(function(req, res) {
     try {
-      const token = req.body['secret_key']
+      const token = req.body.token
 
       if (token !== env.FPT_WEBHOOK_TOKEN) {
         return res.status(HttpStatusCode.UNAUTHORIZED).json({
-          errors: 'Unauthorized'
+          errors: 'Invalid token'
         })
       }
 
-      res.status(HttpStatusCode.OK).send(env.FPT_WEBHOOK_TOKEN)
+      return res.status(HttpStatusCode.OK).send(env.FPT_WEBHOOK_TOKEN)
     } catch (error) {
       return res.status(HttpStatusCode.INTERNAL_SERVER).json({
         errors: error.message
